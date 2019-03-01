@@ -1,0 +1,120 @@
+import java.io.*;
+import java.util.*;
+class Node{
+    public int data;
+    public Node next;
+    public void setData(int data){
+        this.data=data;
+    }
+    public void setNode(Node next){
+        this.next=next;
+    }
+    public int getData(){
+        return data;
+    }
+    public Node getNext(){
+        return next;
+    }
+}
+
+public class Solution {
+    Node head;
+    int size;
+    //inserfting a new node at the end
+    void insert(Node newnode){
+        if(head==null){
+            head=newnode;
+        }
+        else{
+            Node temp=head;
+            while(temp.next!=null){
+                temp=temp.next;
+            }
+            temp.next=newnode;
+        }
+    }
+    
+     void display(int size){
+        int d=0;
+        void printReverse(Node head) 
+    { 
+        if (head == null) return; 
+  
+        // print list of head node 
+        printReverse(head.next); 
+  
+        // After everything else is printed 
+        System.out.print(head.data+" "); 
+    } 
+            if(d<size){
+                System.out.print(",");
+            }
+        }
+    
+     
+    }
+    void delete(int size){
+               
+        if(isEven(size)){
+            
+            Node current = head;
+            Node previous = null;
+            while (current.next != null) {
+                previous = current;
+                current = current.next;
+            }
+            
+            previous.next=null;
+        }
+        else{
+            Node slow_ptr = head;  
+    Node fast_ptr = head;  
+    // Find the middle and previous of middle.  
+    Node prev = null;       
+    // To store previous of slow_ptr  
+    while (fast_ptr!= null && fast_ptr.next != null)  
+    {  
+        fast_ptr = fast_ptr.next.next;  
+        prev = slow_ptr;  
+        slow_ptr = slow_ptr.next;  
+    } 
+    //Delete the middle node  
+    prev.next = slow_ptr.next;
+           }
+    }
+     
+    boolean isEven(int size){
+        boolean response=false;
+         if(size%2==0){
+             response=true;
+         }
+         return response;
+     }
+    
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    Scanner sc=new Scanner(System.in);
+        Solution obj=new Solution();
+        int c=0;
+        while(true){
+            int n=sc.nextInt();
+            if(n<1000){
+                c++;
+                Node num=new Node();
+                    num.setData(n);
+                    num.setNode(null);
+                    obj.insert(num);
+                }
+            else{
+                break;
+            }
+        }
+        System.out.println(c);
+        obj.display(c);
+        obj.delete(c);
+        obj.display(c-1); 
+        
+    
+    }
+}
